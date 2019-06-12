@@ -1,0 +1,11 @@
+# Docker environment template, rename to .docker-env
+
+# Cluster IP or hostname to ne used for API connections
+IP="music"
+# This account just needs enough access to connect via API
+USER="admin"
+PASSWORD="admin"
+# The dns name you wish to respond to
+DNSNAME="music.eng.qumulo.com"
+# The VLAN ID that your cluster's floating IPs are assigned to
+VLANID=0

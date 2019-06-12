@@ -1,0 +1,16 @@
+# yep
+
+version: '2'
+
+services:
+
+  qlb:
+    env_file:
+      # Use template.docker-env for an example, ignored by git
+      - '.env'
+    image: qlb
+    build: .
+    ports:
+      - ${BINDIP}:53:53/udp
+    restart: always
+    tty: true

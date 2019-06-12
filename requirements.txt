@@ -1,0 +1,4 @@
+argparse==1.2.1
+dnslib==0.9.6
+qumulo-api
+wsgiref==0.1.2
