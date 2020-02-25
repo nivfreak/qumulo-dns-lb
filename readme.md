@@ -20,6 +20,11 @@ It will NOT currently:
         time, so you will get away with it to an undefined scale.
 
 
+API User
+--------------------------
+
+The API user used to connect to the Qumulo cluster must be granted PRIVILEGE_NETWORK_READ, which is included in the Observers role. As a best practice, use an account with only this Role/Privilege.
+
 Docker
 --------------------------
 
@@ -27,7 +32,7 @@ If you wish to use docker (This is the easiest way)
 
     * We require docker compose 1.6 or newer for this container.
     
-    * Tested with docker 1.12.1 and docker compose 1.8.1.
+    * Tested with docker 18.09.7 and docker compose 1.17.1.
     
 
 Start by making a copy of template.docker-env to .env in the source directory.

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""hi"""
+"""A DNS load balancer for Qumulo Clusters"""
 import argparse
 import copy
 import sys
@@ -26,7 +26,8 @@ class ConnectionCountResolver(BaseResolver):
     def resolve(self, request, handler):
         reply = request.reply()
         qname = request.q.qname
-        if qname != self.args.dnsname:
+        if qname not in self.args.dnsname:
+            print "Skipping: %s is not a configured DNS name." % (qname)
             return reply
         # Replace labels with request label
         for ip in self.get_qfs_ips():
@@ -120,7 +121,7 @@ def main():
                         help="Log hooks to enable (default: +request,+reply,+truncated,+error,-recv,-send,-data)")
     parser.add_argument("--log-prefix", action='store_true', default=False,
                         help="Log prefix (timestamp/handler/resolver) (default: False)")
-    parser.add_argument("--dnsname", required=True, dest="dnsname",
+    parser.add_argument("--dnsname", required=True, dest="dnsname", nargs='+',
                         help="The hostname you wish to respond to.")
     parser.add_argument("--vlan-id", type=int, default=0, dest="vlan_id",
                         help="VLAN ID of desired cluster network, defaults to 0 (untagged)")

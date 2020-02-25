@@ -1,11 +1,13 @@
-# Docker environment template, rename to .docker-env
+# Docker environment template, rename to .env
 
 # Cluster IP or hostname to ne used for API connections
-IP="music"
+IP=music.eng.qumulo.com
 # This account just needs enough access to connect via API
-USER="admin"
-PASSWORD="admin"
+USER=ccdns
+PASSWORD=yourpassword
+# The external IP of your docker host that should respond to DNS request
+BINDIP=10.120.248.202
 # The dns name you wish to respond to
-DNSNAME="music.eng.qumulo.com"
+DNSNAMES=ccmusic.eng.qumulo.com altmusic.eng.qumulo.com
 # The VLAN ID that your cluster's floating IPs are assigned to
 VLANID=0
